@@ -4,6 +4,7 @@ source ./common.sh
 # List of scripts to execute (in order)
 scripts=(
   ./install_oyainput.sh
+  ./install_vim.sh
   # Add more scripts as needed
 )
 
