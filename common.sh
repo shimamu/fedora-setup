@@ -5,15 +5,19 @@ TMP_FLAG="/tmp/post_install_check_update_done"
 CONF_DIR="$HOME/conf"
 BUILD_DIR="$HOME/build"
 
-# Color codes for blue and reset
-COLOR='\033[0;36m'
-NC='\033[0m'  # No Color (reset)
-
-# Logging with timestamp, output in blue
+# Logging with timestamp: color in terminal, no color in log file
 log() {
-    local ts
+    local ts msg
     ts=$(date '+%Y-%m-%d %H:%M:%S')
-    echo -e "${COLOR}[$ts] $*${NC}" | tee -a "$LOG_FILE"
+    msg="[$ts] $*"
+
+    # Blue for terminal
+    local COLOR='\033[0;36m' # Cyan
+    local NC='\033[0m'       # No Color (reset)
+    echo -e "${COLOR}[$ts] $*${NC}"
+
+    # Plain text for log file
+    echo "$msg" >> "$LOG_FILE"
 }
 
 # Ensure necessary directories exist
