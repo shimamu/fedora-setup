@@ -9,7 +9,7 @@ print_section "Installing oyainput"
 
 # Repositories with .git suffix
 BUILD_REPO_URL="https://github.com/shimamu/oyainput-fcitx5-fix.git"
-CONF_REPO_URL="https://github.com/shimamu/oyainput-dotfiles.git"
+CONF_REPO_URL="https://github.com/shimamu/oyainput-config.git"
 
 # Extract repo names from URLs (remove .git)
 BUILD_REPO_NAME=$(basename "${BUILD_REPO_URL%.git}")
