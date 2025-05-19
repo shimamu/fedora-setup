@@ -58,7 +58,10 @@ cleanup_check_update_flag() {
         log "Temporary check-update flag has been removed."
     fi
 }
-trap cleanup_check_update_flag EXIT
+# Trap for cleaning up the check update flag, only if NOT running from main.sh
+if [ -z "$RUNNING_FROM_MAIN" ]; then
+    trap cleanup_check_update_flag EXIT
+fi
 
 # Initialize required directories immediately
 init_common_dirs

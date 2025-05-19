@@ -1,5 +1,6 @@
 #!/bin/bash
 source ./common.sh
+export RUNNING_FROM_MAIN=1
 
 # List of scripts to execute (in order)
 scripts=(
