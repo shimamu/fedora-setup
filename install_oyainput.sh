@@ -4,8 +4,11 @@ source ./common.sh
 print_section "Installing oyainput"
 
 # Run check-update only once per execution
-# Not a dnf package, so check-update is not required
-#ensure_check_update_done
+ensure_check_update_done
+
+# Install required build tools
+log "Installing build tools (gcc, make, git)"
+sudo dnf install -y gcc make git | tee -a "$LOG_FILE"
 
 # Repositories with .git suffix
 BUILD_REPO_URL="https://github.com/shimamu/oyainput-fcitx5-fix.git"
