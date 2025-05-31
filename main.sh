@@ -4,6 +4,7 @@ export RUNNING_FROM_MAIN=1
 
 # List of scripts to execute (in order)
 scripts=(
+    ./set_home_dirs_en.sh
     ./install_fcitx5.sh
     ./install_oyainput.sh
     ./install_bizingothic.sh
