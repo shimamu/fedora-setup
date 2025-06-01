@@ -22,9 +22,9 @@ scripts=(
     ./set_home_dirs_en.sh
     ./install_fcitx5.sh
     ./install_oyainput.sh
-    ./install_bizingothic.sh
     ./install_starship.sh
     ./install_vim.sh
+    ./install_bizingothic.sh
     # Add more scripts as needed
 )
 
