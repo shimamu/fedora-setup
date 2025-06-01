@@ -1,6 +1,8 @@
 #!/bin/bash
 
-LOG_FILE="./install.log"
+# Always resolve absolute path to the original current directory
+ORIGINAL_PWD="$(pwd)"
+LOG_FILE="$ORIGINAL_PWD/install.log"
 TMP_FLAG="/tmp/post_install_check_update_done"
 CONF_DIR="$HOME/conf"
 BUILD_DIR="$HOME/build"
