@@ -9,7 +9,7 @@ log "Installing fcitx5 packages via dnf"
 sudo dnf install -y fcitx5-mozc fcitx5-autostart fcitx5-qt fcitx5-gtk fcitx5-configtool | tee -a "$LOG_FILE"
 
 log "Configuring input method alternatives"
-sudo script -q /dev/null alternatives --config xinputrc
+sudo alternatives --config xinputrc
 
 log "Opening Firefox to install GNOME Shell integration extension"
 firefox "https://addons.mozilla.org/ja/firefox/addon/gnome-shell-integration/" &
