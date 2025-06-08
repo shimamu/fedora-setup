@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./common.sh
+source ./setup/common.sh
 export RUNNING_FROM_MAIN=1
 
 # Check for --no-upgrade option
@@ -13,24 +13,24 @@ done
 
 # Optionally upgrade packages first
 if [ "$DO_UPGRADE" -eq 1 ]; then
-    log "Running: ./upgrade_packages.sh"
-    bash ./upgrade_packages.sh
+    log "Running: ./setup/upgrade_packages.sh"
+    bash ./setup/upgrade_packages.sh
 fi
 
-# List of scripts to execute (in order)
+# List of setup scripts to execute (in order)
 scripts=(
-    ./set_home_dirs_en.sh
-    ./install_xclip.sh
-    ./install_fcitx5.sh
-    ./install_oyainput.sh
-    ./install_starship.sh
-    ./install_vim.sh
-    ./install_bizingothic.sh
+    set_home_dirs_en.sh
+    install_xclip.sh
+    install_fcitx5.sh
+    install_oyainput.sh
+    install_starship.sh
+    install_vim.sh
+    install_bizingothic.sh
     # Add more scripts as needed
 )
 
 for script in "${scripts[@]}"; do
-    log "Running: $script"
-    bash "$script"
+    log "Running: ./setup/$script"
+    bash "./setup/$script"
 done
 

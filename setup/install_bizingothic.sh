@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./common.sh
+source "$(dirname "$0")/common.sh"
 
 print_section "Installing Bizin Gothic NF font"
 
