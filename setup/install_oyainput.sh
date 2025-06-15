@@ -6,47 +6,33 @@ print_section "Installing oyainput"
 # Run check-update only once per execution
 ensure_check_update_done
 
-# Install required build tools
-log "Installing build tools (gcc, make, git)"
-sudo dnf install -y gcc make git | tee -a "$LOG_FILE"
+# Install oyainput via COPR repository
+log "Enabling COPR repository for oyainput-fix"
+sudo dnf copr enable -y shimamu/oyainput-fix | tee -a "$LOG_FILE"
 
-# Repositories with .git suffix
-BUILD_REPO_URL="https://github.com/shimamu/oyainput-fcitx5-fix.git"
-CONF_REPO_URL="https://github.com/shimamu/oyainput-config.git"
+log "Installing oyainput-fix via dnf"
+sudo dnf install -y oyainput-fix | tee -a "$LOG_FILE"
 
-# Extract repo names from URLs (remove .git)
-BUILD_REPO_NAME=$(basename "${BUILD_REPO_URL%.git}")
-CONF_REPO_NAME=$(basename "${CONF_REPO_URL%.git}")
+# Open GNOME extension page in Firefox
+log "Opening Firefox to install GNOME Extension: oyainput-indicator"
+firefox "https://extensions.gnome.org/extension/8248/oyainput-indicator/" &
 
-# Derived paths
-BUILD_PATH="$BUILD_DIR/$BUILD_REPO_NAME"
-CONF_PATH="$CONF_DIR/$CONF_REPO_NAME"
-
-# Clone and build
-if [ ! -d "$BUILD_PATH" ]; then
-    log "Cloning oyainput source to $BUILD_PATH"
-    git clone "$BUILD_REPO_URL" "$BUILD_PATH"
-else
-    log "Build directory already exists: $BUILD_PATH"
-fi
-
-log "Building oyainput"
-cd "$BUILD_PATH" || exit 1
-make | tee -a "$LOG_FILE"
-sudo make install | tee -a "$LOG_FILE"
+read -p "After completing the GNOME extension installation in the browser, press [Enter] to continue..."
 
 # Clone and run config setup
+CONF_REPO_URL="https://github.com/shimamu/oyainput-config.git"
+CONF_REPO_NAME=$(basename "${CONF_REPO_URL%.git}")
+CONF_PATH="$CONF_DIR/$CONF_REPO_NAME"
+
 if [ ! -d "$CONF_PATH" ]; then
     log "Cloning oyainput config to $CONF_PATH"
-    git clone "$CONF_REPO_URL" "$CONF_PATH"
+    git clone "$CONF_REPO_URL" "$CONF_PATH" | tee -a "$LOG_FILE"
 else
     log "Config directory already exists: $CONF_PATH"
 fi
 
 log "Running setup.sh in $CONF_PATH"
-cd "$CONF_PATH" || exit 1
-chmod +x setup.sh
-./setup.sh | tee -a "$LOG_FILE"
+(cd "$CONF_PATH" && chmod +x setup.sh && ./setup.sh | tee -a "$LOG_FILE")
 
-log "oyainput installation completed."
+log "oyainput installation and configuration completed."
 
