@@ -22,6 +22,7 @@ scripts=(
     set_home_dirs_en.sh
     install_xclip.sh
     install_bitwarden.sh
+    install_raindrop.sh
     install_gnome_tweaks.sh
     install_fcitx5.sh
     install_oyainput.sh
