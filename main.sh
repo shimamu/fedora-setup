@@ -26,6 +26,7 @@ scripts=(
     install_gnome_tweaks.sh
     install_fcitx5.sh
     install_oyainput.sh
+    install_oyainput_build_deps.sh
     install_starship.sh
     install_vim.sh
     install_rpmbuild.sh
