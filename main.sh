@@ -28,6 +28,7 @@ scripts=(
     install_oyainput.sh
     install_starship.sh
     install_vim.sh
+    install_rpmbuild.sh
     install_bizingothic.sh
     # Add more scripts as needed
 )
