@@ -25,6 +25,7 @@ scripts=(
     install_raindrop.sh
     install_gnome_tweaks.sh
     install_date_menu_formatter.sh
+    install_reorder_workspaces.sh
     install_fcitx5.sh
     install_oyainput.sh
     install_oyainput_build_deps.sh
