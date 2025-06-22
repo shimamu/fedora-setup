@@ -6,6 +6,9 @@ LOG_FILE="$ORIGINAL_PWD/install.log"
 TMP_FLAG="/tmp/post_install_check_update_done"
 CONF_DIR="$HOME/conf"
 BUILD_DIR="$HOME/build"
+ASSETS_DIR="$HOME/assets"
+# Set USERNAME if not already set in environment variables
+# USERNAME=
 
 # Logging with timestamp: color in terminal, no color in log file
 log() {
@@ -24,7 +27,7 @@ log() {
 
 # Ensure necessary directories exist
 init_common_dirs() {
-    for dir in "$CONF_DIR" "$BUILD_DIR"; do
+    for dir in "$CONF_DIR" "$BUILD_DIR" "$ASSETS_DIR"; do
         if [ ! -d "$dir" ]; then
             mkdir -p "$dir"
             log "Created directory: $dir"

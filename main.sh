@@ -20,6 +20,7 @@ fi
 # List of setup scripts to execute (in order)
 scripts=(
     set_home_dirs_en.sh
+    set_profile_assets.sh
     install_xclip.sh
     install_bitwarden.sh
     install_raindrop.sh
