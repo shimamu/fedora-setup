@@ -11,11 +11,6 @@ sudo dnf install -y fcitx5-mozc fcitx5-autostart fcitx5-qt fcitx5-gtk fcitx5-con
 log "Configuring input method alternatives"
 sudo alternatives --config xinputrc
 
-log "Opening Firefox to install GNOME Shell integration extension"
-firefox "https://addons.mozilla.org/ja/firefox/addon/gnome-shell-integration/" &
-
-read -p "After completing the GNOME Shell integration extension installation in the browser, press [Enter] to continue..."
-
 log "Opening Firefox to install GNOME Extension: Input Method Panel (kimpanel)"
 firefox "https://extensions.gnome.org/extension/261/kimpanel/" &
 
