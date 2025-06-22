@@ -25,6 +25,7 @@ scripts=(
     install_bitwarden.sh
     install_raindrop.sh
     install_gnome_tweaks.sh
+    install_dash_to_panel.sh
     install_date_menu_formatter.sh
     install_reorder_workspaces.sh
     install_fcitx5.sh
