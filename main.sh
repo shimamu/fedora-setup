@@ -22,6 +22,7 @@ scripts=(
     set_home_dirs_en.sh
     set_profile_assets.sh
     install_xclip.sh
+    install_wl_clipboard.sh
     install_bitwarden.sh
     install_raindrop.sh
     install_gnome_tweaks.sh
